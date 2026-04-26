@@ -498,7 +498,7 @@ async function init() {
     const count = jobs.filter(j => j.category === cat).length;
     return `
       <a href="listings.html?category=${encodeURIComponent(cat)}" class="cat-card">
-        <span class="cat-icon">${CAT_ICONS[cat] || '💼'}</span>
+        <span class="cat-icon">${CAT_ICONS[cat] || ''}</span>
         <strong>${esc(cat)}</strong>
         <span>${count} lowongan</span>
       </a>
@@ -518,7 +518,7 @@ async function init() {
         </div>
       </div>
       <div class="job-meta">
-        <span>📍 ${esc(job.location)}</span>
+        <span>${esc(job.location)}</span>
         <span>${esc(job.type)}</span>
         <span>${esc(job.category)}</span>
       </div>

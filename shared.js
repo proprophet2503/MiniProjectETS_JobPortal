@@ -1,10 +1,10 @@
 const DATA_URL = './job_portal_50_data.json';
 
-const CAT_ICONS = {
-  IT: '💻', Design: '🎨', Marketing: '📣', Data: '📊',
-  Finance: '💰', Management: '📋', HR: '👥',
-  Operations: '⚙️', Support: '🎧'
-};
+const CAT_ICONS = [
+  'IT', 'Design', 'Marketing', 'Data',
+  'Finance', 'Management', 'HR',
+  'Operations', 'Support'
+];
 
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');

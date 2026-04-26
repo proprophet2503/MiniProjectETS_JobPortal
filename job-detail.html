@@ -394,14 +394,14 @@ async function init() {
             <div style="flex:1">
               <p class="jh-company">${esc(job.company)}</p>
               <h1 class="jh-title">${esc(job.title)}</h1>
-              <p class="jh-salary">💰 ${esc(job.salary)}</p>
+              <p class="jh-salary">${esc(job.salary)}</p>
             </div>
           </div>
           <div class="badge-row">
-            <span class="badge">📍 ${esc(job.location)}</span>
+            <span class="badge"> ${esc(job.location)}</span>
             <span class="badge blue">${esc(job.type)}</span>
             <span class="badge">${esc(job.category)}</span>
-            <span class="badge">🕒 ${daysAgo(job.posted_date)}</span>
+            <span class="badge">${daysAgo(job.posted_date)}</span>
           </div>
           <div class="jh-actions">
             <a href="apply.html?id=${job.id}" class="btn-apply-big">Lamar Sekarang →</a>
@@ -436,12 +436,12 @@ async function init() {
           <h2>Informasi Tambahan</h2>
           <div class="info-grid">
             ${[
-              ['📍 Lokasi', job.location],
-              ['💼 Tipe', job.type],
-              ['🏷 Kategori', job.category],
-              ['📅 Diposting', fmtDateLong(job.posted_date)],
-              ['💰 Gaji', job.salary],
-              ['🏢 Perusahaan', job.company]
+              [' Lokasi', job.location],
+              ['Tipe', job.type],
+              ['Kategori', job.category],
+              ['Diposting', fmtDateLong(job.posted_date)],
+              ['Gaji', job.salary],
+              ['Perusahaan', job.company]
             ].map(([k,v]) => `
               <div class="info-cell">
                 <p>${k}</p>
@@ -492,7 +492,7 @@ async function init() {
                 <div class="rel-info">
                   <p class="rel-company">${esc(rj.company)}</p>
                   <p class="rel-title">${esc(rj.title)}</p>
-                  <p class="rel-loc">📍 ${esc(rj.location)} · ${esc(rj.type)}</p>
+                  <p class="rel-loc"> ${esc(rj.location)} · ${esc(rj.type)}</p>
                 </div>
               </div>
             `).join('')}
