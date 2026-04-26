@@ -8,25 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #070b13;
-  --bg-s: #0c1220;
-  --panel: #111826;
-  --panel-h: #162035;
-  --line: #1e2d45;
-  --text: #d8e8ff;
-  --muted: #6a88aa;
-  --brand: #38B6FF;
-  --brand-d: #1892e6;
-  --brand-faint: rgba(56,182,255,.09);
-  --shadow: 0 18px 48px rgba(0,0,0,.5);
+  --bg: #f3f2ee;
+  --bg-s: #e9e5df;
+  --panel: #ffffff;
+  --panel-h: #f5f3ef;
+  --line: #e0ddd8;
+  --text: #191919;
+  --muted: #666666;
+  --brand: #0A66C2;
+  --brand-d: #004182;
+  --brand-faint: rgba(10,102,194,.08);
+  --shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Mulish',sans-serif;color:var(--text);
-  background:
-    radial-gradient(circle at 12% -4%,rgba(56,182,255,.12),transparent 28%),
-    radial-gradient(circle at 85% 10%,rgba(56,182,255,.06),transparent 30%),
-    linear-gradient(180deg,#050911 0%,#070b13 55%,#060a12 100%);
+  background: var(--bg);
   min-height:100vh;
 }
 a{color:inherit;text-decoration:none}
@@ -34,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .nav{
   position:sticky;top:0;z-index:100;
   border-bottom:1px solid var(--line);
-  background:rgba(5,9,17,.9);backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
 }
 .nav-inner{
   max-width:1400px;margin:0 auto;padding:0 28px;
@@ -47,10 +44,10 @@ a{color:inherit;text-decoration:none}
 }
 .logo-dot{
   width:12px;height:12px;border-radius:50%;background:var(--brand);
-  box-shadow:0 0 14px rgba(56,182,255,.8);
+  box-shadow:0 0 14px rgba(10,102,194,.5);
   animation:pulse 2.6s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(56,182,255,.8)}50%{box-shadow:0 0 28px rgba(56,182,255,1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(10,102,194,.5)}50%{box-shadow:0 0 20px rgba(10,102,194,.8)}}
 .nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
 .nav-links a{
   padding:7px 14px;border-radius:8px;
@@ -62,7 +59,7 @@ a{color:inherit;text-decoration:none}
   margin-left:10px;padding:9px 20px;border-radius:10px;
   font-size:.88rem;font-weight:700;font-family:'Sora',sans-serif;
   background:linear-gradient(135deg,var(--brand),var(--brand-d));
-  color:#040914;transition:opacity .2s,transform .15s;
+  color:#ffffff;transition:opacity .2s,transform .15s;
 }
 .btn-nav:hover{opacity:.88;transform:translateY(-1px)}
 
@@ -93,7 +90,7 @@ a{color:inherit;text-decoration:none}
 .filters{
   position:sticky;top:78px;
   border:1px solid var(--line);border-radius:18px;
-  padding:20px;background:rgba(17,24,38,.92);
+  padding:20px;background:var(--panel);
   backdrop-filter:blur(10px);
   box-shadow:var(--shadow);
 }
@@ -105,19 +102,19 @@ a{color:inherit;text-decoration:none}
   font-size:.76rem;color:var(--muted);
   margin-bottom:14px;padding:8px 10px;
   border:1px solid var(--line);border-radius:8px;
-  background:rgba(7,11,19,.5);min-height:34px;
+  background:var(--panel-h);min-height:34px;
 }
 .filter-status.error{color:#ff7070}
 
 .filter-search{
   display:flex;align-items:center;
   border:1px solid var(--line);border-radius:10px;
-  background:#08101e;overflow:hidden;margin-bottom:18px;
+  background:#f8f8f8;overflow:hidden;margin-bottom:18px;
   transition:border-color .2s,box-shadow .2s;
 }
 .filter-search:focus-within{
   border-color:var(--brand);
-  box-shadow:0 0 0 2px rgba(56,182,255,.18);
+  box-shadow:0 0 0 2px rgba(10,102,194,.2);
 }
 .filter-search input{
   flex:1;border:none;outline:none;
@@ -134,16 +131,16 @@ a{color:inherit;text-decoration:none}
 }
 .chip-row{display:flex;flex-wrap:wrap;gap:6px}
 .chip{
-  border:1px solid #1c2d45;border-radius:999px;
-  padding:5px 11px;font-size:.76rem;color:#7a93b5;
+  border:1px solid var(--line);border-radius:999px;
+  padding:5px 11px;font-size:.76rem;color:var(--muted);
   cursor:pointer;transition:all .18s;
-  background:rgba(7,11,19,.7);
+  background:var(--panel-h);
 }
-.chip:hover{border-color:#3a5a7a;color:var(--text)}
+.chip:hover{border-color:var(--brand);color:var(--brand)}
 .chip.on{
   border-color:var(--brand);
   background:linear-gradient(135deg,var(--brand),var(--brand-d));
-  color:#040914;font-weight:700;
+  color:#ffffff;font-weight:700;
   box-shadow:0 0 0 2px rgba(56,182,255,.2);
 }
 .btn-reset{
@@ -152,11 +149,11 @@ a{color:inherit;text-decoration:none}
   color:var(--muted);font-family:'Mulish',sans-serif;font-size:.8rem;
   cursor:pointer;transition:all .2s;margin-top:4px;
 }
-.btn-reset:hover{border-color:#3a5a7a;color:var(--text)}
+.btn-reset:hover{border-color:var(--brand);color:var(--brand)}
 
 .jobs-main{
   border:1px solid var(--line);border-radius:18px;
-  background:rgba(17,24,38,.88);overflow:hidden;
+  background:var(--panel);overflow:hidden;
   box-shadow:var(--shadow);
 }
 .jobs-head{
@@ -171,10 +168,10 @@ a{color:inherit;text-decoration:none}
 #job-count{font-size:.82rem;color:var(--muted)}
 .sort-select{
   border:1px solid var(--line);border-radius:8px;
-  padding:6px 10px;background:#08101e;color:var(--muted);
+  padding:6px 10px;background:#f8f8f8;color:var(--muted);
   font-family:'Mulish',sans-serif;font-size:.78rem;outline:none;cursor:pointer;
 }
-.sort-select option{background:#08101e}
+.sort-select option{background:#f8f8f8}
 
 .jobs-list{padding:10px}
 .empty-msg{
@@ -185,7 +182,7 @@ a{color:inherit;text-decoration:none}
 .job-row{
   border:1px solid var(--line);border-radius:12px;
   padding:15px 16px;margin-bottom:9px;
-  background:rgba(11,17,29,.7);
+  background:var(--panel);
   cursor:pointer;
   display:grid;
   grid-template-columns:auto 1fr auto;
@@ -194,7 +191,7 @@ a{color:inherit;text-decoration:none}
   animation:fadeUp .3s ease both;
 }
 .job-row:hover{
-  border-color:rgba(56,182,255,.3);background:rgba(22,32,53,.8);
+  border-color:rgba(10,102,194,.3);background:var(--panel-h);
   transform:translateX(3px);
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -223,7 +220,7 @@ a{color:inherit;text-decoration:none}
 .jrow-chip{
   font-size:.7rem;color:var(--muted);
   border:1px solid var(--line);border-radius:5px;
-  padding:2px 7px;background:rgba(7,11,19,.6);
+  padding:2px 7px;background:var(--panel-h);
 }
 .jrow-right{
   display:flex;flex-direction:column;align-items:flex-end;
@@ -242,11 +239,11 @@ a{color:inherit;text-decoration:none}
   font-family:'Mulish',sans-serif;font-size:.76rem;font-weight:600;
   cursor:pointer;transition:all .18s;
 }
-.btn-sm-outline:hover{border-color:rgba(56,182,255,.4);color:var(--text)}
+.btn-sm-outline:hover{border-color:rgba(10,102,194,.4);color:var(--text)}
 .btn-sm-blue{
   padding:7px 13px;border:none;border-radius:8px;
   background:linear-gradient(135deg,var(--brand),var(--brand-d));
-  color:#040914;font-family:'Sora',sans-serif;font-size:.76rem;font-weight:700;
+  color:#ffffff;font-family:'Sora',sans-serif;font-size:.76rem;font-weight:700;
   cursor:pointer;transition:opacity .2s;
 }
 .btn-sm-blue:hover{opacity:.88}
@@ -281,9 +278,9 @@ footer{
       InfoLoker
     </a>
     <div class="nav-links">
-      <a href="index.html">Beranda</a>
+
       <a href="listings.html" class="active">Lowongan</a>
-      <a href="listings.html" class="btn-nav">Cari Kerja</a>
+
     </div>
   </div>
 </nav>
@@ -331,8 +328,6 @@ footer{
       <div class="jobs-meta-row">
         <span id="job-count">0 lowongan</span>
         <select class="sort-select" id="sort-sel">
-          <option value="random">Diacak</option>
-          <option value="date">Terbaru</option>
           <option value="salary">Gaji Tertinggi</option>
           <option value="title">A–Z</option>
         </select>
@@ -344,21 +339,6 @@ footer{
   </section>
 </div>
 
-<footer>
-  <div class="footer-inner">
-    <a href="index.html" class="logo-mark">
-      <span class="logo-dot" style="width:10px;height:10px"></span>
-      InfoLoker
-    </a>
-    <div class="footer-links">
-      <a href="listings.html">Lowongan</a>
-      <a href="#">Perusahaan</a>
-      <a href="#">Tentang Kami</a>
-      <a href="#">Kontak</a>
-    </div>
-    <span class="footer-copy">© 2026 InfoLoker. Hak cipta dilindungi.</span>
-  </div>
-</footer>
 
 <script src="./shared.js"></script>
 <script>
