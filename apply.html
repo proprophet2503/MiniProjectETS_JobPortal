@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lamar Pekerjaan — KarirID</title>
+<title>Lamar Pekerjaan — InfoLoker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -369,7 +369,7 @@ footer{
   <div class="nav-inner">
     <a href="index.html" class="logo-mark">
       <span class="logo-dot"></span>
-      KarirID
+      InfoLoker
     </a>
     <div class="nav-links">
       <a href="index.html">Beranda</a>
@@ -400,7 +400,7 @@ footer{
   <div class="footer-inner">
     <a href="index.html" class="logo-mark">
       <span class="logo-dot" style="width:10px;height:10px"></span>
-      KarirID
+      InfoLoker
     </a>
     <div class="footer-links">
       <a href="listings.html">Lowongan</a>
@@ -408,7 +408,7 @@ footer{
       <a href="#">Tentang Kami</a>
       <a href="#">Kontak</a>
     </div>
-    <span class="footer-copy">© 2026 KarirID. Hak cipta dilindungi.</span>
+    <span class="footer-copy">© 2026 InfoLoker. Hak cipta dilindungi.</span>
   </div>
 </footer>
 
@@ -562,7 +562,7 @@ async function init() {
   const job = jobs.find(j => j.id === id);
   if (!job) { showError('Lowongan tidak ditemukan.'); return; }
 
-  document.title = `Lamar: ${job.title} di ${job.company} — KarirID`;
+  document.title = `Lamar: ${job.title} di ${job.company} — InfoLoker`;
   document.getElementById('bc-title').textContent = `Lamar ${job.title}`;
   document.getElementById('back-link').innerHTML =
     `<a href="job-detail.html?id=${job.id}" class="back-btn">← Detail Pekerjaan</a>`;
@@ -813,7 +813,7 @@ async function init() {
               <label>Sumber Informasi Lowongan</label>
               <select id="source">
                 <option value="">— Pilih —</option>
-                <option>Website KarirID</option>
+                <option>Website InfoLoker</option>
                 <option>LinkedIn</option>
                 <option>Instagram / Media Sosial</option>
                 <option>Rekomendasi teman / keluarga</option>
@@ -832,7 +832,7 @@ async function init() {
             <label class="check-row" style="margin-bottom:20px">
               <input type="checkbox" id="agree-privacy">
               <div>
-                <div class="check-label">Saya menyetujui Kebijakan Privasi KarirID <span class="req" style="font-size:.9rem">*</span></div>
+                <div class="check-label">Saya menyetujui Kebijakan Privasi InfoLoker <span class="req" style="font-size:.9rem">*</span></div>
                 <div class="check-sub">Data saya akan digunakan sesuai ketentuan yang berlaku dan diteruskan ke tim rekruter ${esc(job.company)}</div>
               </div>
             </label>

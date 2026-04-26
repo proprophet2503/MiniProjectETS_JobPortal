@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semua Lowongan — KarirID</title>
+<title>Semua Lowongan — InfoLoker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -278,7 +278,7 @@ footer{
   <div class="nav-inner">
     <a href="index.html" class="logo-mark">
       <span class="logo-dot"></span>
-      KarirID
+      InfoLoker
     </a>
     <div class="nav-links">
       <a href="index.html">Beranda</a>
@@ -348,7 +348,7 @@ footer{
   <div class="footer-inner">
     <a href="index.html" class="logo-mark">
       <span class="logo-dot" style="width:10px;height:10px"></span>
-      KarirID
+      InfoLoker
     </a>
     <div class="footer-links">
       <a href="listings.html">Lowongan</a>
@@ -356,7 +356,7 @@ footer{
       <a href="#">Tentang Kami</a>
       <a href="#">Kontak</a>
     </div>
-    <span class="footer-copy">© 2026 KarirID. Hak cipta dilindungi.</span>
+    <span class="footer-copy">© 2026 InfoLoker. Hak cipta dilindungi.</span>
   </div>
 </footer>
 
@@ -496,7 +496,7 @@ async function init() {
     const companies = new Set(state.jobs.map(j => j.company)).size;
     document.getElementById('page-subtitle').textContent =
       `${state.jobs.length} lowongan dari ${companies} perusahaan terpercaya`;
-    setStatus(`${state.jobs.length} lowongan tersedia · Urutan diacak tiap muat`);
+    setStatus(`${state.jobs.length} lowongan tersedia`);
     renderFilters();
     renderJobs();
 
