@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semua Lowongan — KarirID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070b13;
+  --bg-s: #0c1220;
+  --panel: #111826;
+  --panel-h: #162035;
+  --line: #1e2d45;
+  --text: #d8e8ff;
+  --muted: #6a88aa;
+  --brand: #38B6FF;
+  --brand-d: #1892e6;
+  --brand-faint: rgba(56,182,255,.09);
+  --shadow: 0 18px 48px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Mulish',sans-serif;color:var(--text);
+  background:
+    radial-gradient(circle at 12% -4%,rgba(56,182,255,.12),transparent 28%),
+    radial-gradient(circle at 85% 10%,rgba(56,182,255,.06),transparent 30%),
+    linear-gradient(180deg,#050911 0%,#070b13 55%,#060a12 100%);
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+
+.nav{
+  position:sticky;top:0;z-index:100;
+  border-bottom:1px solid var(--line);
+  background:rgba(5,9,17,.9);backdrop-filter:blur(14px);
+}
+.nav-inner{
+  max-width:1400px;margin:0 auto;padding:0 28px;
+  height:62px;display:flex;align-items:center;gap:32px;
+}
+.logo-mark{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;
+  flex-shrink:0;
+}
+.logo-dot{
+  width:12px;height:12px;border-radius:50%;background:var(--brand);
+  box-shadow:0 0 14px rgba(56,182,255,.8);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(56,182,255,.8)}50%{box-shadow:0 0 28px rgba(56,182,255,1)}}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-links a{
+  padding:7px 14px;border-radius:8px;
+  font-size:.88rem;color:var(--muted);transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--text);background:var(--brand-faint)}
+.nav-links a.active{color:var(--brand)}
+.btn-nav{
+  margin-left:10px;padding:9px 20px;border-radius:10px;
+  font-size:.88rem;font-weight:700;font-family:'Sora',sans-serif;
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  color:#040914;transition:opacity .2s,transform .15s;
+}
+.btn-nav:hover{opacity:.88;transform:translateY(-1px)}
+
+.page-head{
+  max-width:1400px;margin:30px auto 0;padding:0 28px 22px;
+  border-bottom:1px solid var(--line);
+}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-size:.8rem;color:var(--muted);margin-bottom:12px;
+}
+.breadcrumb a:hover{color:var(--brand)}
+.breadcrumb span{color:var(--line)}
+.page-head h1{
+  font-family:'Sora',sans-serif;
+  font-size:1.55rem;font-weight:700;
+}
+.page-head p{color:var(--muted);font-size:.88rem;margin-top:5px}
+
+.listings-shell{
+  max-width:1400px;margin:0 auto;
+  padding:22px 28px 64px;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:20px;align-items:start;
+}
+
+.filters{
+  position:sticky;top:78px;
+  border:1px solid var(--line);border-radius:18px;
+  padding:20px;background:rgba(17,24,38,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:var(--shadow);
+}
+.filters h2{
+  font-family:'Sora',sans-serif;
+  font-size:.95rem;font-weight:700;margin-bottom:14px;
+}
+.filter-status{
+  font-size:.76rem;color:var(--muted);
+  margin-bottom:14px;padding:8px 10px;
+  border:1px solid var(--line);border-radius:8px;
+  background:rgba(7,11,19,.5);min-height:34px;
+}
+.filter-status.error{color:#ff7070}
+
+.filter-search{
+  display:flex;align-items:center;
+  border:1px solid var(--line);border-radius:10px;
+  background:#08101e;overflow:hidden;margin-bottom:18px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.filter-search:focus-within{
+  border-color:var(--brand);
+  box-shadow:0 0 0 2px rgba(56,182,255,.18);
+}
+.filter-search input{
+  flex:1;border:none;outline:none;
+  background:transparent;color:var(--text);
+  font-family:'Mulish',sans-serif;font-size:.86rem;padding:10px 12px;
+}
+.filter-search input::placeholder{color:var(--muted)}
+
+.filter-group{margin-bottom:18px}
+.filter-group h3{
+  font-size:.74rem;font-weight:700;letter-spacing:.6px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:10px;
+}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  border:1px solid #1c2d45;border-radius:999px;
+  padding:5px 11px;font-size:.76rem;color:#7a93b5;
+  cursor:pointer;transition:all .18s;
+  background:rgba(7,11,19,.7);
+}
+.chip:hover{border-color:#3a5a7a;color:var(--text)}
+.chip.on{
+  border-color:var(--brand);
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  color:#040914;font-weight:700;
+  box-shadow:0 0 0 2px rgba(56,182,255,.2);
+}
+.btn-reset{
+  width:100%;padding:10px;border:1px solid var(--line);
+  border-radius:10px;background:transparent;
+  color:var(--muted);font-family:'Mulish',sans-serif;font-size:.8rem;
+  cursor:pointer;transition:all .2s;margin-top:4px;
+}
+.btn-reset:hover{border-color:#3a5a7a;color:var(--text)}
+
+.jobs-main{
+  border:1px solid var(--line);border-radius:18px;
+  background:rgba(17,24,38,.88);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.jobs-head{
+  padding:16px 20px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;
+}
+.jobs-head h2{
+  font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;
+}
+.jobs-meta-row{display:flex;align-items:center;gap:12px}
+#job-count{font-size:.82rem;color:var(--muted)}
+.sort-select{
+  border:1px solid var(--line);border-radius:8px;
+  padding:6px 10px;background:#08101e;color:var(--muted);
+  font-family:'Mulish',sans-serif;font-size:.78rem;outline:none;cursor:pointer;
+}
+.sort-select option{background:#08101e}
+
+.jobs-list{padding:10px}
+.empty-msg{
+  padding:48px;text-align:center;
+  color:var(--muted);font-size:.92rem;
+}
+
+.job-row{
+  border:1px solid var(--line);border-radius:12px;
+  padding:15px 16px;margin-bottom:9px;
+  background:rgba(11,17,29,.7);
+  cursor:pointer;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:14px;align-items:center;
+  transition:border-color .2s,background .2s,transform .15s;
+  animation:fadeUp .3s ease both;
+}
+.job-row:hover{
+  border-color:rgba(56,182,255,.3);background:rgba(22,32,53,.8);
+  transform:translateX(3px);
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.jrow-logo{
+  width:48px;height:48px;border-radius:11px;
+  object-fit:cover;border:1px solid var(--line);
+  background:var(--panel);
+}
+.jrow-logo-fb{
+  width:48px;height:48px;border-radius:11px;
+  border:1px solid var(--line);background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:700;
+  font-size:1.1rem;color:var(--brand);
+}
+.jrow-info{min-width:0}
+.jrow-company{font-size:.75rem;color:var(--muted);margin-bottom:3px}
+.jrow-title{
+  font-family:'Sora',sans-serif;
+  font-size:.95rem;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  margin-bottom:8px;
+}
+.jrow-chips{display:flex;flex-wrap:wrap;gap:5px}
+.jrow-chip{
+  font-size:.7rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:5px;
+  padding:2px 7px;background:rgba(7,11,19,.6);
+}
+.jrow-right{
+  display:flex;flex-direction:column;align-items:flex-end;
+  gap:7px;flex-shrink:0;
+}
+.jrow-salary{
+  font-family:'Sora',sans-serif;
+  font-size:.8rem;font-weight:700;color:var(--brand);
+  white-space:nowrap;
+}
+.jrow-date{font-size:.72rem;color:var(--muted)}
+.jrow-actions{display:flex;gap:7px}
+.btn-sm-outline{
+  padding:7px 13px;border:1px solid var(--line);border-radius:8px;
+  background:transparent;color:var(--muted);
+  font-family:'Mulish',sans-serif;font-size:.76rem;font-weight:600;
+  cursor:pointer;transition:all .18s;
+}
+.btn-sm-outline:hover{border-color:rgba(56,182,255,.4);color:var(--text)}
+.btn-sm-blue{
+  padding:7px 13px;border:none;border-radius:8px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  color:#040914;font-family:'Sora',sans-serif;font-size:.76rem;font-weight:700;
+  cursor:pointer;transition:opacity .2s;
+}
+.btn-sm-blue:hover{opacity:.88}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:28px;max-width:1400px;margin:0 auto;
+}
+.footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--brand)}
+.footer-copy{font-size:.76rem;color:var(--muted);opacity:.55}
+
+@media(max-width:860px){
+  .listings-shell{grid-template-columns:1fr}
+  .filters{position:static}
+  .nav-links a:not(.btn-nav){display:none}
+  .jrow-right{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-dot"></span>
+      KarirID
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="listings.html" class="active">Lowongan</a>
+      <a href="listings.html" class="btn-nav">Cari Kerja</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span>›</span>
+    <span>Semua Lowongan</span>
+  </div>
+  <h1>Jelajahi Semua Lowongan</h1>
+  <p id="page-subtitle">Memuat data lowongan...</p>
+</div>
+
+<div class="listings-shell">
+  <aside class="filters">
+    <h2>Filter Lowongan</h2>
+    <div class="filter-status" id="filter-status">Memuat...</div>
+
+    <div class="filter-search">
+      <input type="text" id="search-in" placeholder="Cari posisi / perusahaan...">
+    </div>
+
+    <div class="filter-group">
+      <h3>Kategori</h3>
+      <div class="chip-row" id="cat-chips"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Lokasi</h3>
+      <div class="chip-row" id="loc-chips"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Tipe Pekerjaan</h3>
+      <div class="chip-row" id="type-chips"></div>
+    </div>
+
+    <button class="btn-reset" id="btn-reset">↺ Reset Semua Filter</button>
+  </aside>
+
+  <section class="jobs-main">
+    <div class="jobs-head">
+      <h2>Hasil Pencarian</h2>
+      <div class="jobs-meta-row">
+        <span id="job-count">0 lowongan</span>
+        <select class="sort-select" id="sort-sel">
+          <option value="random">Diacak</option>
+          <option value="date">Terbaru</option>
+          <option value="salary">Gaji Tertinggi</option>
+          <option value="title">A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="jobs-list" id="jobs-list">
+      <div class="empty-msg">Memuat lowongan...</div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-dot" style="width:10px;height:10px"></span>
+      KarirID
+    </a>
+    <div class="footer-links">
+      <a href="listings.html">Lowongan</a>
+      <a href="#">Perusahaan</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kontak</a>
+    </div>
+    <span class="footer-copy">© 2026 KarirID. Hak cipta dilindungi.</span>
+  </div>
+</footer>
+
+<script src="./shared.js"></script>
+<script>
+const state = {
+  jobs: [],
+  shuffledBase: [],
+  query: '',
+  category: 'Semua',
+  location: 'Semua',
+  type: 'Semua',
+  sort: 'random'
+};
+
+function fmtDate(s) {
+  return new Date(s).toLocaleDateString('id-ID', {day:'numeric', month:'short', year:'numeric'});
+}
+
+function filtered() {
+  let out = state.sort === 'random' ? [...state.shuffledBase] : [...state.jobs];
+  const q = state.query.trim().toLowerCase();
+  if (state.category !== 'Semua') out = out.filter(j => j.category === state.category);
+  if (state.location !== 'Semua') out = out.filter(j => j.location === state.location);
+  if (state.type !== 'Semua') out = out.filter(j => j.type === state.type);
+  if (q) out = out.filter(j =>
+    j.title.toLowerCase().includes(q) || j.company.toLowerCase().includes(q)
+  );
+  if (state.sort === 'date') out.sort((a,b) => new Date(b.posted_date) - new Date(a.posted_date));
+  if (state.sort === 'salary') out.sort((a,b) => {
+    const p = s => parseInt(s.replace(/\D/g,'')) || 0;
+    return p(b.salary) - p(a.salary);
+  });
+  if (state.sort === 'title') out.sort((a,b) => a.title.localeCompare(b.title));
+  return out;
+}
+
+function makeChips(container, values, current, key) {
+  container.innerHTML = ['Semua', ...values].map(v => `
+    <button class="chip${v === current ? ' on' : ''}" data-key="${key}" data-val="${esc(v)}">${esc(v)}</button>
+  `).join('');
+}
+
+function renderFilters() {
+  const cats = [...new Set(state.jobs.map(j => j.category))].sort();
+  const locs = [...new Set(state.jobs.map(j => j.location))].sort();
+  const types = [...new Set(state.jobs.map(j => j.type))].sort();
+  makeChips(document.getElementById('cat-chips'), cats, state.category, 'category');
+  makeChips(document.getElementById('loc-chips'), locs, state.location, 'location');
+  makeChips(document.getElementById('type-chips'), types, state.type, 'type');
+}
+
+function renderJobs() {
+  const jobs = filtered();
+  const list = document.getElementById('jobs-list');
+  document.getElementById('job-count').textContent = `${jobs.length} lowongan`;
+
+  if (!jobs.length) {
+    list.innerHTML = '<div class="empty-msg">Tidak ada lowongan yang sesuai filter.</div>';
+    return;
+  }
+
+  list.innerHTML = jobs.map((job, i) => `
+    <div class="job-row" style="animation-delay:${Math.min(i,20) * 0.025}s" data-id="${job.id}">
+      <img src="${logoPath(job.company)}" alt="${esc(job.company)}" class="jrow-logo"
+        onerror="this.outerHTML='<div class=\\"jrow-logo-fb\\">${esc(job.company[0])}</div>'">
+      <div class="jrow-info">
+        <p class="jrow-company">${esc(job.company)}</p>
+        <h3 class="jrow-title">${esc(job.title)}</h3>
+        <div class="jrow-chips">
+          <span class="jrow-chip">📍 ${esc(job.location)}</span>
+          <span class="jrow-chip">${esc(job.category)}</span>
+          <span class="jrow-chip">${esc(job.type)}</span>
+        </div>
+      </div>
+      <div class="jrow-right">
+        <span class="jrow-salary">${esc(job.salary)}</span>
+        <span class="jrow-date">${fmtDate(job.posted_date)}</span>
+        <div class="jrow-actions">
+          <button class="btn-sm-outline" onclick="event.stopPropagation();location.href='job-detail.html?id=${job.id}'">Detail</button>
+          <button class="btn-sm-blue" onclick="event.stopPropagation();location.href='apply.html?id=${job.id}'">Lamar</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setStatus(msg, err) {
+  const el = document.getElementById('filter-status');
+  el.textContent = msg;
+  el.classList.toggle('error', !!err);
+}
+
+document.addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  const { key, val } = chip.dataset;
+  if (key === 'category') state.category = val;
+  if (key === 'location') state.location = val;
+  if (key === 'type') state.type = val;
+  renderFilters();
+  renderJobs();
+});
+
+document.getElementById('jobs-list').addEventListener('click', e => {
+  const row = e.target.closest('.job-row');
+  if (!row || e.target.tagName === 'BUTTON') return;
+  location.href = `job-detail.html?id=${row.dataset.id}`;
+});
+
+document.getElementById('search-in').addEventListener('input', e => {
+  state.query = e.target.value;
+  renderJobs();
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  state.category = 'Semua';
+  state.location = 'Semua';
+  state.type = 'Semua';
+  state.query = '';
+  document.getElementById('search-in').value = '';
+  renderFilters();
+  renderJobs();
+});
+
+document.getElementById('sort-sel').addEventListener('change', e => {
+  state.sort = e.target.value;
+  renderJobs();
+});
+
+async function init() {
+  try {
+    const data = await fetchJobs();
+    state.jobs = data;
+    state.shuffledBase = shuffle(data);
+
+    const companies = new Set(state.jobs.map(j => j.company)).size;
+    document.getElementById('page-subtitle').textContent =
+      `${state.jobs.length} lowongan dari ${companies} perusahaan terpercaya`;
+    setStatus(`${state.jobs.length} lowongan tersedia · Urutan diacak tiap muat`);
+    renderFilters();
+    renderJobs();
+
+    const params = new URLSearchParams(location.search);
+    let changed = false;
+    if (params.get('q')) {
+      state.query = params.get('q');
+      document.getElementById('search-in').value = state.query;
+      changed = true;
+    }
+    if (params.get('category')) {
+      state.category = decodeURIComponent(params.get('category'));
+      changed = true;
+    }
+    if (params.get('company')) {
+      state.query = decodeURIComponent(params.get('company'));
+      document.getElementById('search-in').value = state.query;
+      changed = true;
+    }
+    if (changed) { renderFilters(); renderJobs(); }
+
+  } catch(err) {
+    setStatus('Gagal memuat data: ' + err.message, true);
+    document.getElementById('jobs-list').innerHTML =
+      '<div class="empty-msg">Tidak dapat memuat data. Pastikan file JSON tersedia dan halaman diakses via server lokal.</div>';
+    document.getElementById('page-subtitle').textContent = 'Gagal memuat lowongan';
+  }
+}
+
+init();
+</script>
+</body>
+</html>

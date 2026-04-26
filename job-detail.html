@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Lowongan — KarirID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070b13;
+  --bg-s: #0c1220;
+  --panel: #111826;
+  --panel-h: #162035;
+  --line: #1e2d45;
+  --text: #d8e8ff;
+  --muted: #6a88aa;
+  --brand: #38B6FF;
+  --brand-d: #1892e6;
+  --brand-faint: rgba(56,182,255,.09);
+  --shadow: 0 18px 48px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Mulish',sans-serif;color:var(--text);
+  background:
+    radial-gradient(circle at 12% -4%,rgba(56,182,255,.12),transparent 28%),
+    radial-gradient(circle at 85% 10%,rgba(56,182,255,.06),transparent 30%),
+    linear-gradient(180deg,#050911 0%,#070b13 55%,#060a12 100%);
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.nav{
+  position:sticky;top:0;z-index:100;
+  border-bottom:1px solid var(--line);
+  background:rgba(5,9,17,.9);backdrop-filter:blur(14px);
+}
+.nav-inner{
+  max-width:1320px;margin:0 auto;padding:0 28px;
+  height:62px;display:flex;align-items:center;gap:32px;
+}
+.logo-mark{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;flex-shrink:0;
+}
+.logo-dot{
+  width:12px;height:12px;border-radius:50%;background:var(--brand);
+  box-shadow:0 0 14px rgba(56,182,255,.8);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(56,182,255,.8)}50%{box-shadow:0 0 28px rgba(56,182,255,1)}}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-links a{
+  padding:7px 14px;border-radius:8px;
+  font-size:.88rem;color:var(--muted);transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--text);background:var(--brand-faint)}
+.btn-nav{
+  margin-left:10px;padding:9px 20px;border-radius:10px;
+  font-size:.88rem;font-weight:700;font-family:'Sora',sans-serif;
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  color:#040914;transition:opacity .2s;
+}
+.btn-nav:hover{opacity:.88}
+
+.page-bar{
+  max-width:1320px;margin:22px auto 0;padding:0 28px;
+}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-size:.8rem;color:var(--muted);
+}
+.breadcrumb a:hover{color:var(--brand)}
+.breadcrumb span{color:var(--line)}
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;margin-top:13px;
+  font-size:.83rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:8px;
+  padding:7px 13px;transition:all .2s;
+  background:rgba(17,24,38,.6);
+}
+.back-btn:hover{border-color:rgba(56,182,255,.35);color:var(--text)}
+
+.detail-shell{
+  max-width:1320px;margin:20px auto 64px;padding:0 28px;
+  display:grid;
+  grid-template-columns:1fr 330px;
+  gap:20px;align-items:start;
+}
+
+.job-header{
+  border:1px solid var(--line);border-radius:18px;
+  padding:28px;background:rgba(17,24,38,.9);
+  margin-bottom:16px;
+  animation:fadeUp .38s ease both;
+  box-shadow:var(--shadow);
+}
+.jh-top{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
+.jh-logo{
+  width:64px;height:64px;border-radius:14px;
+  object-fit:cover;border:1px solid var(--line);background:var(--panel);
+}
+.jh-logo-fb{
+  width:64px;height:64px;border-radius:14px;
+  border:1px solid var(--line);background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:700;
+  font-size:1.4rem;color:var(--brand);
+}
+.jh-company{font-size:.8rem;color:var(--muted);margin-bottom:5px}
+.jh-title{
+  font-family:'Sora',sans-serif;
+  font-size:1.5rem;font-weight:800;line-height:1.2;margin-bottom:8px;
+}
+.jh-salary{
+  font-family:'Sora',sans-serif;font-size:.98rem;font-weight:700;
+  color:var(--brand);display:flex;align-items:center;gap:6px;
+}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  font-size:.78rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:8px;
+  padding:5px 10px;background:rgba(7,11,19,.6);
+  display:flex;align-items:center;gap:5px;
+}
+.badge.blue{
+  border-color:rgba(56,182,255,.3);
+  color:var(--brand);background:var(--brand-faint);
+}
+.jh-actions{display:flex;gap:10px;margin-top:20px}
+.btn-apply-big{
+  flex:1;padding:14px;border:none;border-radius:12px;
+  font-family:'Sora',sans-serif;font-size:.98rem;font-weight:700;
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  color:#040914;cursor:pointer;
+  transition:opacity .2s,transform .15s;
+  text-align:center;display:block;
+}
+.btn-apply-big:hover{opacity:.88;transform:translateY(-2px)}
+.btn-save{
+  padding:14px 20px;border:1px solid var(--line);border-radius:12px;
+  background:transparent;color:var(--muted);
+  font-family:'Mulish',sans-serif;font-size:.88rem;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.btn-save:hover{border-color:rgba(56,182,255,.35);color:var(--text)}
+
+.content-section{
+  border:1px solid var(--line);border-radius:18px;
+  padding:24px;background:rgba(17,24,38,.88);
+  margin-bottom:16px;
+  animation:fadeUp .42s ease both;
+  box-shadow:var(--shadow);
+}
+.content-section h2{
+  font-family:'Sora',sans-serif;
+  font-size:.98rem;font-weight:700;margin-bottom:14px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.content-section p{
+  line-height:1.75;color:var(--muted);font-size:.9rem;
+}
+.req-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.req-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.88rem;color:var(--muted);line-height:1.55;
+}
+.req-list li::before{
+  content:'✓';color:var(--brand);font-weight:700;
+  flex-shrink:0;margin-top:1px;
+}
+
+.info-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.info-cell{
+  border:1px solid var(--line);border-radius:10px;
+  padding:12px;background:rgba(7,11,19,.5);
+}
+.info-cell p:first-child{font-size:.7rem;color:var(--muted);margin-bottom:4px}
+.info-cell p:last-child{
+  font-family:'Sora',sans-serif;font-size:.86rem;font-weight:600;
+}
+
+.detail-sidebar{display:flex;flex-direction:column;gap:16px}
+
+.company-card{
+  border:1px solid var(--line);border-radius:18px;
+  padding:22px;background:rgba(17,24,38,.9);
+  animation:fadeUp .38s .05s ease both;
+  box-shadow:var(--shadow);
+}
+.company-card h3{
+  font-family:'Sora',sans-serif;
+  font-size:.78rem;font-weight:700;letter-spacing:.5px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:16px;
+}
+.cc-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.cc-logo{
+  width:48px;height:48px;border-radius:11px;
+  object-fit:cover;border:1px solid var(--line);background:var(--panel);
+}
+.cc-logo-fb{
+  width:48px;height:48px;border-radius:11px;
+  border:1px solid var(--line);background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:700;
+  font-size:1rem;color:var(--brand);
+}
+.cc-name{font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem}
+.cc-subtitle{font-size:.76rem;color:var(--muted);margin-top:2px}
+.cc-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cc-stat{
+  border:1px solid var(--line);border-radius:10px;
+  padding:10px;text-align:center;background:rgba(7,11,19,.5);
+}
+.cc-stat strong{
+  display:block;font-family:'Sora',sans-serif;
+  font-size:1.1rem;font-weight:700;color:var(--brand);
+}
+.cc-stat span{font-size:.7rem;color:var(--muted)}
+.btn-view-company{
+  width:100%;margin-top:14px;padding:10px;
+  border:1px solid var(--line);border-radius:10px;
+  background:transparent;color:var(--muted);
+  font-family:'Mulish',sans-serif;font-size:.8rem;cursor:pointer;
+  transition:all .2s;text-align:center;display:block;
+}
+.btn-view-company:hover{border-color:rgba(56,182,255,.35);color:var(--text)}
+
+.related-card{
+  border:1px solid var(--line);border-radius:18px;
+  padding:20px;background:rgba(17,24,38,.88);
+  animation:fadeUp .38s .1s ease both;
+}
+.related-card h3{
+  font-family:'Sora',sans-serif;
+  font-size:.78rem;font-weight:700;letter-spacing:.5px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:14px;
+}
+.rel-job{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--line);
+  cursor:pointer;transition:opacity .2s;
+}
+.rel-job:last-child{border-bottom:none}
+.rel-job:hover{opacity:.75}
+.rel-logo{
+  width:36px;height:36px;border-radius:8px;
+  object-fit:cover;border:1px solid var(--line);
+  background:var(--panel);flex-shrink:0;
+}
+.rel-logo-fb{
+  width:36px;height:36px;border-radius:8px;
+  border:1px solid var(--line);background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:700;
+  font-size:.82rem;color:var(--brand);flex-shrink:0;
+}
+.rel-info{min-width:0}
+.rel-company{font-size:.7rem;color:var(--muted);margin-bottom:2px}
+.rel-title{font-family:'Sora',sans-serif;font-size:.82rem;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rel-loc{font-size:.7rem;color:var(--muted);margin-top:3px}
+
+.sidebar-cta{
+  border:1px solid rgba(56,182,255,.2);border-radius:18px;
+  padding:20px;background:rgba(17,24,38,.88);text-align:center;
+}
+
+.not-found{
+  max-width:480px;margin:80px auto;text-align:center;
+  padding:0 28px;
+}
+.not-found h2{
+  font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:700;
+  margin-bottom:10px;
+}
+.not-found p{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.not-found a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;border-radius:11px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-d));
+  font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;
+  color:#040914;
+}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:28px;max-width:1320px;margin:0 auto;
+}
+.footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--brand)}
+.footer-copy{font-size:.76rem;color:var(--muted);opacity:.55}
+
+@media(max-width:920px){
+  .detail-shell{grid-template-columns:1fr}
+  .nav-links a:not(.btn-nav){display:none}
+  .detail-sidebar{order:-1}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-dot"></span>
+      KarirID
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="listings.html">Lowongan</a>
+      <a href="listings.html" class="btn-nav">Semua Lowongan</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span>›</span>
+    <a href="listings.html">Lowongan</a>
+    <span>›</span>
+    <span id="bc-title">Detail</span>
+  </div>
+  <a href="listings.html" class="back-btn">← Kembali ke Daftar</a>
+</div>
+
+<div id="content-area">
+  <div class="not-found" id="loading-state">
+    <p style="color:var(--muted)">Memuat detail lowongan...</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-dot" style="width:10px;height:10px"></span>
+      KarirID
+    </a>
+    <div class="footer-links">
+      <a href="listings.html">Lowongan</a>
+      <a href="#">Perusahaan</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kontak</a>
+    </div>
+    <span class="footer-copy">© 2026 KarirID. Hak cipta dilindungi.</span>
+  </div>
+</footer>
+
+<script src="./shared.js"></script>
+<script>
+async function init() {
+  const params = new URLSearchParams(location.search);
+  const id = parseInt(params.get('id'));
+
+  if (!id) { showNotFound('ID lowongan tidak ditemukan.'); return; }
+
+  let jobs;
+  try {
+    jobs = await fetchJobs();
+  } catch(_) {
+    showNotFound('Gagal memuat data. Pastikan server lokal aktif.');
+    return;
+  }
+
+  const job = jobs.find(j => j.id === id);
+  if (!job) { showNotFound('Lowongan tidak ditemukan.'); return; }
+
+  document.title = `${job.title} di ${job.company} — KarirID`;
+  document.getElementById('bc-title').textContent = job.title;
+
+  const related = shuffle(
+    jobs.filter(j => j.category === job.category && j.id !== job.id)
+  ).slice(0, 4);
+
+  const companyJobs = jobs.filter(j => j.company === job.company);
+
+  document.getElementById('content-area').innerHTML = `
+    <div class="detail-shell">
+      <div class="detail-main">
+        <div class="job-header">
+          <div class="jh-top">
+            ${logoImg(job.company,'jh-logo','jh-logo-fb')}
+            <div style="flex:1">
+              <p class="jh-company">${esc(job.company)}</p>
+              <h1 class="jh-title">${esc(job.title)}</h1>
+              <p class="jh-salary">💰 ${esc(job.salary)}</p>
+            </div>
+          </div>
+          <div class="badge-row">
+            <span class="badge">📍 ${esc(job.location)}</span>
+            <span class="badge blue">${esc(job.type)}</span>
+            <span class="badge">${esc(job.category)}</span>
+            <span class="badge">🕒 ${daysAgo(job.posted_date)}</span>
+          </div>
+          <div class="jh-actions">
+            <a href="apply.html?id=${job.id}" class="btn-apply-big">Lamar Sekarang →</a>
+            <button class="btn-save"
+              onclick="this.textContent=this.textContent==='♡ Simpan'?'♥ Tersimpan':'♡ Simpan'">
+              ♡ Simpan
+            </button>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Deskripsi Pekerjaan</h2>
+          <p>${esc(job.description)}</p>
+          <br>
+          <p style="color:var(--text);font-size:.88rem">
+            Bergabunglah bersama tim <strong>${esc(job.company)}</strong> dan jadilah bagian
+            dari pertumbuhan perusahaan yang dinamis. Posisi ini menawarkan kesempatan
+            berkembang dalam lingkungan kerja yang inovatif dan kolaboratif.
+          </p>
+        </div>
+
+        <div class="content-section" style="animation-delay:.08s">
+          <h2>Kualifikasi &amp; Persyaratan</h2>
+          <ul class="req-list">
+            ${(Array.isArray(job.requirements) ? job.requirements : []).map(r => `<li>${esc(r)}</li>`).join('')}
+            <li>Mampu bekerja dalam tim maupun secara mandiri</li>
+            <li>Bersedia belajar dan mengembangkan diri</li>
+          </ul>
+        </div>
+
+        <div class="content-section" style="animation-delay:.14s">
+          <h2>Informasi Tambahan</h2>
+          <div class="info-grid">
+            ${[
+              ['📍 Lokasi', job.location],
+              ['💼 Tipe', job.type],
+              ['🏷 Kategori', job.category],
+              ['📅 Diposting', fmtDateLong(job.posted_date)],
+              ['💰 Gaji', job.salary],
+              ['🏢 Perusahaan', job.company]
+            ].map(([k,v]) => `
+              <div class="info-cell">
+                <p>${k}</p>
+                <p>${esc(v)}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div style="padding:4px 0 20px">
+          <a href="apply.html?id=${job.id}" class="btn-apply-big" style="max-width:100%;justify-content:center">
+            Lamar Posisi Ini →
+          </a>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="company-card">
+          <h3>Tentang Perusahaan</h3>
+          <div class="cc-header">
+            ${logoImg(job.company,'cc-logo','cc-logo-fb')}
+            <div>
+              <div class="cc-name">${esc(job.company)}</div>
+              <div class="cc-subtitle">${esc(job.category)} &amp; lebih</div>
+            </div>
+          </div>
+          <div class="cc-stat-row">
+            <div class="cc-stat">
+              <strong>${companyJobs.length}</strong>
+              <span>Lowongan</span>
+            </div>
+            <div class="cc-stat">
+              <strong>${new Set(companyJobs.map(j=>j.location)).size}</strong>
+              <span>Kota</span>
+            </div>
+          </div>
+          <a href="listings.html?company=${encodeURIComponent(job.company)}" class="btn-view-company">
+            Lihat Semua Lowongan →
+          </a>
+        </div>
+
+        ${related.length > 0 ? `
+          <div class="related-card">
+            <h3>Lowongan Serupa</h3>
+            ${related.map(rj => `
+              <div class="rel-job" onclick="location.href='job-detail.html?id=${rj.id}'">
+                ${logoImg(rj.company,'rel-logo','rel-logo-fb')}
+                <div class="rel-info">
+                  <p class="rel-company">${esc(rj.company)}</p>
+                  <p class="rel-title">${esc(rj.title)}</p>
+                  <p class="rel-loc">📍 ${esc(rj.location)} · ${esc(rj.type)}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+
+        <div class="sidebar-cta">
+          <p style="font-size:.76rem;color:var(--muted);margin-bottom:12px">Siap melamar posisi ini?</p>
+          <a href="apply.html?id=${job.id}" class="btn-apply-big" style="font-size:.9rem">Lamar Sekarang</a>
+        </div>
+      </aside>
+    </div>
+  `;
+}
+
+function showNotFound(msg) {
+  document.getElementById('content-area').innerHTML = `
+    <div class="not-found">
+      <div style="font-size:3rem;margin-bottom:16px">🔍</div>
+      <h2>Lowongan Tidak Ditemukan</h2>
+      <p>${esc(msg)}</p>
+      <a href="listings.html">← Kembali ke Daftar Lowongan</a>
+    </div>
+  `;
+}
+
+init();
+</script>
+</body>
+</html>
