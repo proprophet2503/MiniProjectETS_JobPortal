@@ -487,7 +487,9 @@ async function init() {
     <div class="company-card" onclick="location.href='listings.html?company=${encodeURIComponent(c)}'">
       <img src="${logoPath(c)}" alt="${esc(c)}"
         style="width:32px;height:32px;border-radius:8px;object-fit:cover;border:1px solid var(--line);background:var(--panel);flex-shrink:0"
-        onerror="this.outerHTML='<div class=\\"company-fallback\\">${esc(c[0])}</div>'">
+        data-fb="${esc(c[0])}"
+        onerror="var d=document.createElement('div');d.className='company-fallback';d.textContent=this.dataset.fb;this.replaceWith(d)"
+        >
       <span>${esc(c)}</span>
     </div>
   `).join('');
@@ -508,7 +510,8 @@ async function init() {
     <article class="job-card" style="animation-delay:${i * 0.06}s">
       <div class="job-card-top">
         <img src="${logoPath(job.company)}" alt="${esc(job.company)}" class="job-logo"
-          onerror="this.outerHTML='<div class=\\"job-logo-fb\\">${esc(job.company[0])}</div>'">
+          data-fb="${esc(job.company[0])}"
+          onerror="var d=document.createElement('div');d.className='job-logo-fb';d.textContent=this.dataset.fb;this.replaceWith(d)">
         <div>
           <p class="job-company">${esc(job.company)}</p>
           <h3 class="job-title">${esc(job.title)}</h3>

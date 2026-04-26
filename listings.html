@@ -422,7 +422,7 @@ function renderJobs() {
   list.innerHTML = jobs.map((job, i) => `
     <div class="job-row" style="animation-delay:${Math.min(i,20) * 0.025}s" data-id="${job.id}">
       <img src="${logoPath(job.company)}" alt="${esc(job.company)}" class="jrow-logo"
-        onerror="this.outerHTML='<div class=\\"jrow-logo-fb\\">${esc(job.company[0])}</div>'">
+        onerror="this.outerHTML='<div class=jrow-logo-fb>${esc(job.company[0])}</div>'">
       <div class="jrow-info">
         <p class="jrow-company">${esc(job.company)}</p>
         <h3 class="jrow-title">${esc(job.title)}</h3>

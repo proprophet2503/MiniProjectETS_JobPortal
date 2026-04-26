@@ -573,7 +573,8 @@ async function init() {
         <p class="js-label">Kamu melamar untuk</p>
         <div class="js-header">
           <img src="${logoPath(job.company)}" alt="${esc(job.company)}" class="js-logo"
-            onerror="this.outerHTML='<div class=\\"js-logo-fb\\">${esc(job.company[0])}</div>'">
+            data-fb="${esc(job.company[0])}"
+            onerror="var d=document.createElement('div');d.className='js-logo-fb';d.textContent=this.dataset.fb;this.replaceWith(d)">
           <div>
             <p class="js-company">${esc(job.company)}</p>
             <h3 class="js-title">${esc(job.title)}</h3>

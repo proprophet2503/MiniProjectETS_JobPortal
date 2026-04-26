@@ -24,8 +24,17 @@ function logoPath(company) {
 }
 
 function logoImg(company, cls, fbCls) {
-  return `<img src="${logoPath(company)}" alt="${esc(company)}" class="${cls}"
-    onerror="this.outerHTML='<div class=\\"${fbCls}\\">${esc(company[0])}</div>'">`;
+  return `
+    <img src="${logoPath(company)}" alt="${esc(company)}" class="${cls}"
+    onerror="this.onerror=null; this.replaceWith(createFallback('${esc(company)}','${fbCls}'))">
+  `;
+}
+
+function createFallback(company, fbCls) {
+  const div = document.createElement('div');
+  div.className = fbCls;
+  div.textContent = company[0];
+  return div;
 }
 
 function fmtDate(s) {
