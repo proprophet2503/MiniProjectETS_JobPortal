@@ -24,6 +24,7 @@ project/
 ├── job-detail.html          # Detail pekerjaan
 ├── apply.html               # Form lamaran
 ├── shared.js                # Fungsi dan utilitas bersama
+├── style.css                # style global theme terinspirasi linkedin
 └── job_portal_50_data.json  # Data 50 lowongan kerja
 ```
 
