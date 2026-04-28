@@ -1,8 +1,3 @@
-/* ================================================
-   InfoLoker — Shared Stylesheet (LinkedIn Theme)
-   ================================================ */
-
-/* ── CSS Variables ── */
 :root {
   --bg: #f3f2ee;
   --bg-s: #e9e5df;
@@ -18,21 +13,16 @@
   --shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
-/* ── Reset ── */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Mulish',sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
 a{color:inherit;text-decoration:none}
 img{display:block}
 
-/* ── Animations ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{box-shadow:0 0 14px rgba(10,102,194,.5)}50%{box-shadow:0 0 20px rgba(10,102,194,.8)}}
 @keyframes successPop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 
-/* ================================================
-   NAVIGATION
-   ================================================ */
 .nav{
   position:sticky;top:0;z-index:100;
   border-bottom:1px solid var(--line);
@@ -73,9 +63,6 @@ img{display:block}
 }
 .btn-nav:hover{opacity:.88;transform:translateY(-1px)}
 
-/* ================================================
-   FOOTER
-   ================================================ */
 footer{
   border-top:1px solid var(--line);
   padding:32px 28px;
@@ -90,9 +77,6 @@ footer{
 .footer-links a:hover{color:var(--brand)}
 .footer-copy{font-size:.78rem;color:var(--muted);opacity:.55}
 
-/* ================================================
-   BREADCRUMB & PAGE BAR
-   ================================================ */
 .breadcrumb{
   display:flex;align-items:center;gap:8px;
   font-size:.8rem;color:var(--muted);margin-bottom:12px;
@@ -108,9 +92,6 @@ footer{
 }
 .back-btn:hover{border-color:rgba(10,102,194,.3);color:var(--text)}
 
-/* ================================================
-   SECTION COMMON
-   ================================================ */
 .section-head{
   display:flex;align-items:flex-start;justify-content:space-between;
   margin-bottom:22px;flex-wrap:wrap;gap:10px;
@@ -127,7 +108,6 @@ footer{
   text-transform:uppercase;color:var(--muted);margin-bottom:8px;
 }
 
-/* ── Shared Job Card Buttons ── */
 .btn-outline{
   flex:1;text-align:center;padding:9px 12px;
   border:1px solid var(--line);border-radius:9px;
@@ -144,7 +124,6 @@ footer{
 }
 .btn-blue:hover{opacity:.88}
 
-/* ── Shared Logo Fallback ── */
 .company-fallback{
   width:32px;height:32px;border-radius:8px;
   background:var(--panel);border:1px solid var(--line);
@@ -153,9 +132,6 @@ footer{
   font-size:.82rem;color:var(--brand);flex-shrink:0;
 }
 
-/* ================================================
-   INDEX — HERO
-   ================================================ */
 .hero{max-width:1360px;margin:48px auto 0;padding:0 28px;text-align:center}
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
@@ -178,7 +154,6 @@ footer{
   line-height:1.65;animation:fadeUp .55s .15s ease both;
 }
 
-/* ── Hero Search ── */
 .hero-search{
   max-width:580px;margin:0 auto 52px;
   display:flex;border:1px solid var(--line);border-radius:14px;
@@ -201,7 +176,6 @@ footer{
 }
 .hero-search button:hover{opacity:.88}
 
-/* ── Stats Row ── */
 .stats-row{
   max-width:760px;margin:0 auto 64px;
   display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
@@ -218,7 +192,6 @@ footer{
 }
 .stat-card span{font-size:.8rem;color:var(--muted)}
 
-/* ── Companies ── */
 .companies{max-width:1360px;margin:0 auto 58px;padding:0 28px}
 .company-strip{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;
@@ -243,7 +216,6 @@ footer{
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
-/* ── Categories ── */
 .categories{max-width:1360px;margin:0 auto 58px;padding:0 28px}
 .cat-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;
@@ -263,7 +235,6 @@ footer{
 .cat-card strong{font-family:'Sora',sans-serif;font-size:.88rem;font-weight:600;color:var(--text)}
 .cat-card span{font-size:.76rem;color:var(--muted)}
 
-/* ── Featured Jobs ── */
 .featured{max-width:1360px;margin:0 auto 58px;padding:0 28px}
 .featured-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;
@@ -311,7 +282,6 @@ footer{
 .job-salary{font-family:'Sora',sans-serif;font-size:.86rem;font-weight:700;color:var(--brand);margin-top:auto}
 .job-actions{display:flex;gap:8px;margin-top:4px}
 
-/* ── CTA Banner ── */
 .cta-banner{max-width:1360px;margin:0 auto 0;padding:0 28px 64px}
 .cta-inner{
   border:1px solid rgba(10,102,194,.2);border-radius:20px;
@@ -341,9 +311,6 @@ footer{
 }
 .btn-cta-big:hover{opacity:.88;transform:translateY(-2px)}
 
-/* ================================================
-   LISTINGS PAGE
-   ================================================ */
 .page-head{
   max-width:1400px;margin:30px auto 0;padding:0 28px 22px;
   border-bottom:1px solid var(--line);
@@ -358,7 +325,6 @@ footer{
   gap:20px;align-items:start;
 }
 
-/* ── Filters ── */
 .filters{
   position:sticky;top:78px;
   border:1px solid var(--line);border-radius:18px;
@@ -412,7 +378,6 @@ footer{
 }
 .btn-reset:hover{border-color:var(--brand);color:var(--brand)}
 
-/* ── Jobs Main Panel ── */
 .jobs-main{
   border:1px solid var(--line);border-radius:18px;
   background:var(--panel);overflow:hidden;box-shadow:var(--shadow);
@@ -434,7 +399,6 @@ footer{
 .jobs-list{padding:10px}
 .empty-msg{padding:48px;text-align:center;color:var(--muted);font-size:.92rem}
 
-/* ── Job Row ── */
 .job-row{
   border:1px solid var(--line);border-radius:12px;
   padding:15px 16px;margin-bottom:9px;
@@ -489,9 +453,6 @@ footer{
 }
 .btn-sm-blue:hover{opacity:.88}
 
-/* ================================================
-   JOB DETAIL PAGE
-   ================================================ */
 .page-bar{max-width:1320px;margin:22px auto 0;padding:0 28px}
 
 .detail-shell{
@@ -500,7 +461,6 @@ footer{
   gap:20px;align-items:start;
 }
 
-/* ── Job Header ── */
 .job-header{
   border:1px solid var(--line);border-radius:18px;
   padding:28px;background:var(--panel);margin-bottom:16px;
@@ -546,7 +506,6 @@ footer{
 }
 .btn-save:hover{border-color:rgba(10,102,194,.3);color:var(--text)}
 
-/* ── Content Sections ── */
 .content-section{
   border:1px solid var(--line);border-radius:18px;
   padding:24px;background:var(--panel);
@@ -568,32 +527,39 @@ footer{
 .info-cell p:first-child{font-size:.7rem;color:var(--muted);margin-bottom:4px}
 .info-cell p:last-child{font-family:'Sora',sans-serif;font-size:.86rem;font-weight:600}
 
-/* ── Detail Sidebar ── */
-.detail-sidebar{display:flex;flex-direction:column;gap:16px}
-.company-card{
+.detail-sidebar{display:flex;flex-direction:column;gap:16px;min-width:0}
+.detail-sidebar .company-card{
+  display:block;
   border:1px solid var(--line);border-radius:18px;
   padding:22px;background:var(--panel);
   animation:fadeUp .38s .05s ease both;box-shadow:var(--shadow);
+  overflow:hidden;min-width:0;
+  cursor:default;transform:none;
 }
 .company-card h3{
   font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;
   letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin-bottom:16px;
 }
-.cc-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.cc-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;min-width:0}
 .cc-logo{
   width:48px;height:48px;border-radius:11px;
   object-fit:cover;border:1px solid var(--line);background:var(--panel);
+  flex-shrink:0;
 }
 .cc-logo-fb{
   width:48px;height:48px;border-radius:11px;
   border:1px solid var(--line);background:var(--panel);
   display:flex;align-items:center;justify-content:center;
   font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;color:var(--brand);
+  flex-shrink:0;
 }
-.cc-name{font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem}
+.cc-name{
+  font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
 .cc-subtitle{font-size:.76rem;color:var(--muted);margin-top:2px}
-.cc-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cc-stat{border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;background:var(--panel-h)}
+.cc-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.cc-stat{border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;background:var(--panel-h);min-width:0}
 .cc-stat strong{display:block;font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;color:var(--brand)}
 .cc-stat span{font-size:.7rem;color:var(--muted)}
 .btn-view-company{
@@ -602,10 +568,10 @@ footer{
   background:transparent;color:var(--muted);
   font-family:'Mulish',sans-serif;font-size:.8rem;cursor:pointer;
   transition:all .2s;text-align:center;display:block;
+  box-sizing:border-box;
 }
 .btn-view-company:hover{border-color:rgba(10,102,194,.3);color:var(--text)}
 
-/* ── Related Jobs ── */
 .related-card{
   border:1px solid var(--line);border-radius:18px;
   padding:20px;background:var(--panel);animation:fadeUp .38s .1s ease both;
@@ -641,7 +607,6 @@ footer{
   padding:20px;background:var(--panel);text-align:center;
 }
 
-/* ── Not Found ── */
 .not-found{max-width:480px;margin:80px auto;text-align:center;padding:0 28px}
 .not-found h2{font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:700;margin-bottom:10px}
 .not-found p{color:var(--muted);font-size:.9rem;margin-bottom:22px}
@@ -652,16 +617,12 @@ footer{
   font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:#ffffff;
 }
 
-/* ================================================
-   APPLY PAGE
-   ================================================ */
 .apply-shell{
   max-width:1200px;margin:20px auto 64px;padding:0 28px;
   display:grid;grid-template-columns:320px 1fr;
   gap:20px;align-items:start;
 }
 
-/* ── Job Summary Sidebar ── */
 .job-summary{
   position:sticky;top:78px;
   border:1px solid var(--line);border-radius:18px;
@@ -714,7 +675,6 @@ footer{
 .step-info strong{display:block;font-size:.8rem;margin-bottom:1px}
 .step-info span{font-size:.72rem;color:var(--muted)}
 
-/* ── Form Area ── */
 .form-area{animation:fadeUp .38s .06s ease both}
 .form-section{
   border:1px solid var(--line);border-radius:18px;
@@ -734,7 +694,6 @@ footer{
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form-grid.full{grid-template-columns:1fr}
 
-/* ── Form Fields ── */
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:.78rem;font-weight:700;color:#333333;display:flex;align-items:center;gap:4px}
 .field label .req{color:var(--danger);font-size:.85rem}
@@ -754,7 +713,6 @@ footer{
 .field textarea{resize:vertical;min-height:120px;line-height:1.65}
 .field .hint{font-size:.72rem;color:var(--muted)}
 
-/* ── File Drop ── */
 .file-drop{
   border:1.5px dashed var(--line);border-radius:12px;
   padding:24px;text-align:center;
@@ -772,7 +730,6 @@ footer{
 }
 .file-chosen.show{display:block}
 
-/* ── Skills Input ── */
 .skills-wrap{
   display:flex;flex-wrap:wrap;gap:6px;
   border:1px solid var(--line);border-radius:10px;
@@ -799,7 +756,6 @@ footer{
 }
 .skills-hint{font-size:.72rem;color:var(--muted);margin-top:4px}
 
-/* ── Checkboxes ── */
 .check-row{
   display:flex;align-items:flex-start;gap:12px;
   padding:12px 14px;border:1px solid var(--line);border-radius:12px;
@@ -810,7 +766,6 @@ footer{
 .check-label{font-size:.84rem;font-weight:600;margin-bottom:3px}
 .check-sub{font-size:.74rem;color:var(--muted)}
 
-/* ── Submit Row ── */
 .submit-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}
 .btn-submit{
   padding:14px 36px;border:none;border-radius:12px;
@@ -827,7 +782,6 @@ footer{
 .btn-cancel:hover{border-color:rgba(10,102,194,.3);color:var(--text)}
 .form-note{font-size:.74rem;color:var(--muted);flex:1;min-width:180px}
 
-/* ── Success Screen ── */
 .success-screen{text-align:center;padding:56px 28px;animation:fadeUp .5s ease both}
 .success-icon{font-size:3.5rem;margin-bottom:18px;animation:successPop .6s .1s both}
 .success-screen h2{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:12px}
@@ -848,9 +802,6 @@ footer{
 }
 .btn-success-sec:hover{border-color:rgba(10,102,194,.3);color:var(--text)}
 
-/* ================================================
-   RESPONSIVE
-   ================================================ */
 @media(max-width:920px){
   .detail-shell{grid-template-columns:1fr}
   .detail-sidebar{order:-1}
